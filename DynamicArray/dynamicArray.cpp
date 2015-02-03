@@ -47,6 +47,27 @@ DynamicArray& DynamicArray::operator=(const DynamicArray& _source)
 	return *this;
 }
 
+bool DynamicArray::operator==(const DynamicArray& _rhs) const
+{
+	bool verificateur = true;
+	if (&_rhs != this)
+	{
+		if (capacite != _rhs.capacite)
+		{
+			verificateur = false;
+		}
+		
+		for (unsigned int i = 0; i < capacite; i++)
+		{
+			if (tabElements[i] != _rhs.tabElements[i])
+			{
+				verificateur = false;
+			}
+		}
+	}
+	return verificateur;
+}
+
 DynamicArray::~DynamicArray()
 {
 	delete[] tabElements;
