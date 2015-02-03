@@ -22,17 +22,27 @@ DynamicArray::DynamicArray(int _capacite)
 	}
 }
 
+DynamicArray::DynamicArray(const DynamicArray& _source)
+:capacite(_source.capacite), tabElements(new int[_source.capacite])
+{
+	for (unsigned int i = 0; i < capacite; i++)
+	{
+		tabElements[i] = _source.tabElements[i];
+	}
+
+}
+
 DynamicArray::~DynamicArray()
 {
 	delete[] tabElements;
 }
 
-unsigned DynamicArray::getCapacite()
+const unsigned DynamicArray::getCapacite()
 {
 	return capacite;
 }
 
-int DynamicArray::getElement(const unsigned _index)
+const int DynamicArray::getElement(const unsigned _index)
 {
 	if (_index > capacite) throw std::out_of_range("Le pile est vide");
 	return tabElements[_index];
