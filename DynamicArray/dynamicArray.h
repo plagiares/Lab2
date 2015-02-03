@@ -9,6 +9,7 @@ public:
 	DynamicArray();
 	DynamicArray(const int _capacite);
 	DynamicArray(const DynamicArray & _source);
+	DynamicArray& operator=(const DynamicArray & _source);
 	~DynamicArray();
 	const unsigned int getCapacite();
 	const int getElement(const unsigned int _index);
