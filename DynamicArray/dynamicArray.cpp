@@ -70,8 +70,6 @@ bool DynamicArray::operator==(const DynamicArray& _rhs) const
 
 DynamicArray& DynamicArray::operator+=(const DynamicArray& _rhs)
 {
-	if (&_rhs != this)
-	{
 			int * temporaryElements = new int[_rhs.capacite + capacite];
 			for (unsigned int i = 0; i < capacite; i++)
 			{
@@ -84,8 +82,6 @@ DynamicArray& DynamicArray::operator+=(const DynamicArray& _rhs)
 			capacite = (_rhs.capacite + capacite);
 			delete[] tabElements;
 			tabElements = temporaryElements;
-
-		}
 		return *this;
 	}
 
